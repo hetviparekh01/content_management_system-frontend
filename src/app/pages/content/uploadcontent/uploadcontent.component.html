@@ -26,5 +26,7 @@
             Please upload a file.
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [hidden]="isUpdate">Submit</button>
+    <button type="submit" class="btn btn-warning mx-2" [hidden]="isSubmit">Update</button>
+    <button type="button" class="btn btn-secondary" (click)="contentform.reset()" [hidden]="isSubmit">Cancel</button>
 </form>

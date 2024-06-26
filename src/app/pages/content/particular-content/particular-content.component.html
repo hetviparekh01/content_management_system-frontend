@@ -1,1 +1,15 @@
 <img *ngIf="type==='img'" [src]="getSafeUrl(content)" class="img-fluid rounded-top" alt="" />
+<audio *ngIf="type==='mp3'">
+    <source [src]="getSafeUrl(content)" type="audio/mp3">
+</audio>
+<video *ngIf="type==='mp4'" width="100%" height="100%" controls preload>
+    <source [src]="getSafeUrl(content)" type="audio/mp3">
+    <!-- <source src="myvid.ogg" type="video/ogg"> -->
+</video>
+<!-- <iframe *ngIf="type==='pdf'" [src]="getSafeUrl(content)" width="100%" height="600px">
+    
+</iframe> -->
+
+<embed *ngIf="type==='pdf'" [src]="getSafeUrl(content)" width="100%" height="600px" type="application/pdf">
+
+

@@ -20,9 +20,9 @@ export class CustomRenderComponent implements ICellRendererAngularComp {
     this.params.viewBtn(this.params.data._id);
   }
   updateBtn() {
-    this.params.viewBtn(this.params.data._id);
+    this.params.updateBtn(this.params.data._id);
   }
   deleteBtn() {
-    this.params.viewBtn(this.params.data._id);
+    this.params.deleteBtn(this.params.data._id);
   }
 }

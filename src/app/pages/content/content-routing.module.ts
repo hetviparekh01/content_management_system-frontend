@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path:'particularcontent/:id',
     component:ParticularContentComponent
+  },
+  {
+    path:'updatecontent/:id',
+    component:UploadcontentComponent
   } 
 ];
 
