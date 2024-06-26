@@ -1,0 +1,30 @@
+<h2>Upload Content</h2>
+<form [formGroup]="contentform" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter title" required [ngClass]="{'is-invalid':contentform.get('title')?.invalid && (contentform.get('title')?.touched || contentform.get('title')?.dirty),'is-valid':contentform.get('title')?.valid}" formControlName="title">
+        <div *ngIf="contentform.get('title')?.invalid && (contentform.get('title')?.touched || contentform.get('title')?.dirty)" class="text-danger">
+            <span *ngIf="contentform.get('title')?.errors?.['required']">title is required</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3" placeholder="Enter description" required formControlName="description"></textarea>
+        <div class="invalid-feedback">
+            Please enter a description.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Type</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter title" required formControlName="type">
+        
+    </div>
+    <div class="mb-3">
+        <label for="contentUpload" class="form-label">Content Upload</label>
+        <input type="file" class="form-control" id="contentUpload" (change)="onSelectedFile($event)" required formControlName="content">
+        <div class="invalid-feedback">
+            Please upload a file.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
