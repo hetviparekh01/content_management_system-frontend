@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 
 @Component({
   selector: 'app-custom-render',
@@ -9,6 +10,10 @@ import { ICellRendererParams } from 'ag-grid-community';
 })
 export class CustomRenderComponent implements ICellRendererAngularComp {
   params: any;
+  constructor(private ls:LocalstorageService){}
+  role:string=this.ls.getRole() as string
+
+
   agInit(params: ICellRendererParams<any, any, any>): void {
     this.params = params;
   }

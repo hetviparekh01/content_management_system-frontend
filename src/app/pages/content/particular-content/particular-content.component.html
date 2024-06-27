@@ -6,10 +6,6 @@
     <source [src]="getSafeUrl(content)" type="audio/mp3">
     <!-- <source src="myvid.ogg" type="video/ogg"> -->
 </video>
-<!-- <iframe *ngIf="type==='pdf'" [src]="getSafeUrl(content)" width="100%" height="600px">
-    
-</iframe> -->
-
-<embed *ngIf="type==='pdf'" [src]="getSafeUrl(content)" width="100%" height="600px" type="application/pdf">
-
-
+<div *ngIf="type === 'pdf'">
+    <a name="" id="" class="btn btn-primary"  [href]="getSafeUrl(content)" target="_blank" role="button">View PDF</a>
+</div>

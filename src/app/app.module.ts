@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layout/layout.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { TokenInterceptor } from './core/helper/token.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TokenInterceptor } from './core/helper/token.interceptor';
     RouterModule,
     LayoutModule,
     HttpClientModule,
-
+    
   ],
   providers: [
     {

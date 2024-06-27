@@ -34,7 +34,7 @@ export class LoginComponent {
           this.localstorageService.setName(response.content.name);
           Swal.fire({
             icon: "success",
-            title: "User successfully logged in",
+            title: "USER LOGGED IN SUCESSFULLY",
             showConfirmButton: false,
             timer: 1500
           });

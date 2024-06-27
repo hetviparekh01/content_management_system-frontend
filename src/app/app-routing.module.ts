@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HorizontalComponent } from './layout/horizontal/horizontal.component';
+import { authGuard } from './core/guard/auth.guard';
+import { loginGuard } from './core/guard/login.guard';
 
 const routes: Routes = [
   {
     path:'',
     component:HorizontalComponent,
-    loadChildren:()=>import('./pages/pages.module').then(e=>e.PagesModule)
+    loadChildren:()=>import('./pages/pages.module').then(e=>e.PagesModule),
+    canActivate:[authGuard]
   },
   {
     path:'auth',
-    loadChildren:()=>import('./authentication/authentication.module').then(e=>e.AuthenticationModule)
+    loadChildren:()=>import('./authentication/authentication.module').then(e=>e.AuthenticationModule),
+    canActivate:[loginGuard]
   }
 ];
 

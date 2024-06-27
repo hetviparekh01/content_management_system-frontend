@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ColDef } from 'ag-grid-community';
-import { RowDragFeature } from 'ag-grid-community/dist/types/core/gridBodyComp/rowDragFeature';
 import { ContentService } from 'src/app/core/services/content.service';
+import { LocalstorageService } from 'src/app/core/services/localstorage.service';
 import { CustomRenderComponent } from 'src/app/shared/custom-render/custom-render.component';
 import Swal from 'sweetalert2';
 @Component({
@@ -15,14 +15,19 @@ export class ViewContentComponent implements OnInit {
   contentData: any = [];
 
   ngOnInit(): void {
-    this.getContent();
+    if(this.ls.getRole()!=='editor'){
+      this.getContent();
+    }else{
+      this.getContentForUser()
+    }
+
   }
-  constructor(private contentServcie: ContentService,private router:Router) {}
+  constructor(private contentServcie: ContentService,private router:Router,private ls:LocalstorageService) {}
   columnDefs: ColDef[] = [
     { headerName: 'Title', field: 'title', flex: 1 },
-    { headerName: 'Content', field: 'content', flex: 2 },
     { headerName: 'Type', field: 'type', flex: 1   },
     { headerName: 'Description', field: 'description', flex: 2 },
+    { headerName: 'ContentCreator', field: 'userDetails.name', flex: 2 },
     {
       headerName: '',
       field: '',
@@ -77,6 +82,20 @@ export class ViewContentComponent implements OnInit {
  
   getContent() {
     this.contentServcie.getContent().subscribe({
+      next: (response: any) => {
+        this.contentData = response.content;
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: err.error.content,
+          text: 'Something went wrong!',
+        });
+      },
+    });
+  }
+  getContentForUser(){
+    this.contentServcie.getContentForUser().subscribe({
       next: (response: any) => {
         console.log(response);
         this.contentData = response.content;

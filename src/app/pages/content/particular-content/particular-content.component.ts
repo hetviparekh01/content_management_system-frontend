@@ -14,7 +14,6 @@ export class ParticularContentComponent implements OnInit {
   type: any;
   constructor(private activatedRoute:ActivatedRoute,private contentService:ContentService,private sanitizer:DomSanitizer){}
   ngOnInit(): void {
-    console.log(this.activatedRoute.snapshot.paramMap.get('id'));
     this.getContentById()
   }
   

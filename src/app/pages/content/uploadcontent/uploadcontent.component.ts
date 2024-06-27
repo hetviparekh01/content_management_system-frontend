@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContentService } from 'src/app/core/services/content.service';
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./uploadcontent.component.scss'],
 })
 export class UploadcontentComponent implements OnInit {
-  contentform: any;
+  contentform!: FormGroup;
   selectedFile!: File;
   isUpdate: boolean = false;
   isSubmit: boolean = true;
@@ -77,6 +77,7 @@ export class UploadcontentComponent implements OnInit {
     form.append('title', this.contentform.get('title')?.value);
     form.append('description', this.contentform.get('description')?.value);
     form.append('type', this.contentform.get('type')?.value);
+    form.append('content', this.selectedFile);
     this.contentService.updateContent(this.contentId, form).subscribe({
       next: (response) => {
         Swal.fire({
@@ -102,13 +103,14 @@ export class UploadcontentComponent implements OnInit {
       } else {
         this.updateContent();
       }
+    
       this.contentform.reset();
       this.route.navigate(['/content/viewcontent']);
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: this.contentform.errors,
+        text: "Error in Submiting Form",
       });
     }
   }

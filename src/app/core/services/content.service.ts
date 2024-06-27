@@ -19,11 +19,12 @@ export class ContentService {
     return this.http.get<any>(`${this.apiUrl}getcontent/${contentId}`)
   }
   updateContent(contentId:string,contentData:FormData){
-    console.log(contentId);
-    return this.http.post<any>(`${this.apiUrl}updatecontent/${contentId}`,contentData)
+    return this.http.put<any>(`${this.apiUrl}updatecontent/${contentId}`,contentData)
   }
   deleteContent(contentId:string){
-    console.log(contentId);
     return this.http.delete<any>(`${this.apiUrl}deletecontent/${contentId}`)
+  }
+  getContentForUser(){
+    return this.http.get<any>(`${this.apiUrl}getcontentofuser`)
   }
 }

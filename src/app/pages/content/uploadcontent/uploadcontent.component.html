@@ -14,10 +14,17 @@
             Please enter a description.
         </div>
     </div>
-    <div class="mb-3">
-        <label for="title" class="form-label">Type</label>
-        <input type="text" class="form-control" id="title" placeholder="Enter title" required formControlName="type">
-        
+    <div class=" mb-3">
+        <div class="form-group">
+            <label for="roleSelect">Select Role</label>
+            <select class="form-control" id="roleSelect" formControlName="type">
+                <option value="" disabled selected>Select User</option>
+                <option value="pdf">pdf</option>
+                <option value="img">img</option>
+                <option value="mp4">mp4</option>
+                <option value="mp3">mp3</option>
+            </select>
+        </div>
     </div>
     <div class="mb-3">
         <label for="contentUpload" class="form-label">Content Upload</label>

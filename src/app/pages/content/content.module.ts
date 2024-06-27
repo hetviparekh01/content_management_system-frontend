@@ -14,7 +14,7 @@ import { ParticularContentComponent } from './particular-content/particular-cont
   
     ViewContentComponent,
        UploadcontentComponent,
-       ParticularContentComponent
+       ParticularContentComponent,
   ],
   imports: [
     CommonModule,
