@@ -20,7 +20,6 @@ export class ViewContentComponent implements OnInit {
     }else{
       this.getContentForUser()
     }
-
   }
   constructor(private contentServcie: ContentService,private router:Router,private ls:LocalstorageService) {}
   columnDefs: ColDef[] = [
@@ -28,6 +27,7 @@ export class ViewContentComponent implements OnInit {
     { headerName: 'Type', field: 'type', flex: 1   },
     { headerName: 'Description', field: 'description', flex: 2 },
     { headerName: 'ContentCreator', field: 'userDetails.name', flex: 2 },
+    { headerName: 'CreatedAt', field: 'createdAt', flex: 2},
     {
       headerName: '',
       field: '',

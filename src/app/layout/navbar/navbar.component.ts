@@ -13,25 +13,13 @@ export class NavbarComponent{
 constructor(private ls:LocalstorageService,private route:Router){}
   title:string=this.ls.getName() as string
   logOut() {
-    Swal.fire({
-      title: "Are you sure you want to Logout?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes"
-    }).then((result) => {
-      if (result.isConfirmed) {
-          this.ls.clearLocalStorage()
-          this.route.navigate(['/auth/login'])
-      }
-    }).catch((error)=>{
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text:"Error in logging out", 
-      });
+    this.ls.clearLocalStorage()
+     this.route.navigate(['/auth/login'])
+     Swal.fire({
+      icon: 'success',
+      title: "USER LOGGED OUT SUCCESSFULLY",
+      showConfirmButton: false,
+      timer: 1500,
     });
   }
-  
 }

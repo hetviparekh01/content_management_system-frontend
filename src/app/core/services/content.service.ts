@@ -27,4 +27,7 @@ export class ContentService {
   getContentForUser(){
     return this.http.get<any>(`${this.apiUrl}getcontentofuser`)
   }
+  getContentByMonth(){
+    return this.http.get<any>(`${this.apiUrl}getcontentbymonth`)
+  }
 }

@@ -23,6 +23,7 @@ export class GetAllUserComponent implements OnInit {
     { headerName: 'Name', field: 'name' ,flex:3},
     { headerName: 'Email', field: 'email', flex:3 },
     { headerName: 'Role', field: 'role', flex:3},
+    { headerName: 'TotalContent', field: 'totalContent', flex:3},
     { headerName: '', field: '', flex:3,cellRenderer:CustomRenderComponent,cellRendererParams:{
       viewBtn:(id:string)=>this.viewUser(id),
       updateBtn:(id:string)=>this.updateUser(id),

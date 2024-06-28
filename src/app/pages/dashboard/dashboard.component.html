@@ -1,1 +1,24 @@
-<app-card [title]="'TotalUsers'" [count]="totalUsers"></app-card>
+<div class="row mt-5 d-flex  justify-content-start" *ngIf="role==='admin'">
+    <div class="col-3">
+        <app-card [title]="'TotalUsers'" [count]="totalUsers" [bgColor]="'#0dcaf0'"></app-card>
+    </div>
+    <div class="col-3">
+        <app-card [title]="'TotalViewers'" [count]="totalViewer" [bgColor]="'#20c997'"></app-card>
+    </div>
+    <div class="col-3">
+        <app-card [title]="'TotalEditors'" [count]="totalEditor" [bgColor]="'#0dcaf0'"></app-card>
+    </div>
+    <div class="col-3">
+        <app-card [title]="'TotalAdmin'" [count]="totalAdmin" [bgColor]="'#20c997'"></app-card>
+    </div>
+</div>
+<div class="row mt-5 d-flex  justify-content-start" *ngIf="role==='editor'">
+    <div class="col-3">
+        <app-card [title]="'TotalContentUploded'" [count]="totalContentForUser" [bgColor]="'#0dcaf0'"></app-card>
+    </div>
+</div>
+
+<app-chart></app-chart>
+<app-line-chart>
+    
+</app-line-chart>

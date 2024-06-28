@@ -26,8 +26,7 @@
                 <li class="nav-item">
                   <a routerLink="content/viewcontent" class="nav-link" routerLinkActive="active">View Content</a>
                 </li>
-                <!-- <li class="nav-item" *ngIf="role==='admin'"> -->
-                <li class="nav-item" >
+                <li class="nav-item" *ngIf="role==='admin'|| role==='editor'" >
                   <a routerLink="content/uploadcontent" class="nav-link" routerLinkActive="active">Upload Content</a>
                 </li>
                 
@@ -38,7 +37,6 @@
   
   
         <!-- User (based on role) -->
-        <!-- <div class="accordion-item" *ngIf="role === 'admin'"> -->
         <div class="accordion-item" >
           <h2 class="accordion-header" id="userHeading">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userCollapse" aria-expanded="false" aria-controls="userCollapse">

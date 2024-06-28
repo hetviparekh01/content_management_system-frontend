@@ -1,25 +1,26 @@
 <form [formGroup]="signupform" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group my-2">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="Enter name" required formControlName="name">
     </div>
-    <div class="form-group">
+    <div class="form-group my-2">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" required formControlName="email">
     </div>
-    <div class="form-group">
+    <div class="form-group my-2">
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" placeholder="Enter password" required formControlName="password">
     </div>
-    <div class="form-group">
+    <div class="form-group my-2">
         <label for="role">Select Role</label>
         <select class="form-control" id="role" required formControlName="role">
+            <option value="" disabled selected>Select Role</option>
             <option value="viewer">Viewer</option>
             <option value="editor">Editor</option>
         </select>
     </div>
     <button type="submit" class="btn btn-primary my-2" [hidden]="isUpdate">Add User</button>
     <button type="submit" class="btn btn-warning my-2 me-2" [hidden]="isSubmit">Update </button>
-    <button type="submit" class="btn btn-secondary my-2" [hidden]="isSubmit" (click)="signupform.reset()">Cancel</button>
+    <button type="button" class="btn btn-secondary my-2" [hidden]="isSubmit" (click)="signupform.reset()">Cancel</button>
 
 </form>

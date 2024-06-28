@@ -30,11 +30,14 @@ export class UserService {
   getParticularUser(){
     return this.http.get<any>(`${this.apiUrl}getparticularuser`)
   }
-  getUserFilteration(paramsTerm:string){
+  getUserFilteration(role:string){
     return this.http.get<any>(`${this.apiUrl}getusers`,{
       params:{
-        paramsTerm
+        role
       }
     })
+  }
+  getUserType(){
+    return this.http.get<any>(`${this.apiUrl}getusertype`)
   }
 }
