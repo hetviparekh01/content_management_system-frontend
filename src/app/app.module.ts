@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layout/layout.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { TokenInterceptor } from './core/helper/token.interceptor';
-import { SharedModule } from './shared/shared.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     LayoutModule,
     HttpClientModule,
-    
+    NgxPermissionsModule.forRoot()
   ],
   providers: [
     {

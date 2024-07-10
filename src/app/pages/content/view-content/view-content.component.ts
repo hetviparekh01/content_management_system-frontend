@@ -97,7 +97,6 @@ export class ViewContentComponent implements OnInit {
   getContentForUser(){
     this.contentServcie.getContentForUser().subscribe({
       next: (response: any) => {
-        console.log(response);
         this.contentData = response.content;
       },
       error: (err) => {

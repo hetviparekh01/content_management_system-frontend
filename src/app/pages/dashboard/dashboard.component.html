@@ -1,4 +1,4 @@
-<div class="row mt-5 d-flex  justify-content-start" *ngIf="role==='admin'">
+<div class="row mt-5 d-flex  justify-content-start" *ngxPermissionsOnly="['admin']">
     <div class="col-3">
         <app-card [title]="'TotalUsers'" [count]="totalUsers" [bgColor]="'#0dcaf0'"></app-card>
     </div>
@@ -12,7 +12,7 @@
         <app-card [title]="'TotalAdmin'" [count]="totalAdmin" [bgColor]="'#20c997'"></app-card>
     </div>
 </div>
-<div class="row mt-5 d-flex  justify-content-start" *ngIf="role==='editor'">
+<div class="row mt-5 d-flex  justify-content-start" *ngxPermissionsOnly="['editor']">
     <div class="col-3">
         <app-card [title]="'TotalContentUploded'" [count]="totalContentForUser" [bgColor]="'#0dcaf0'"></app-card>
     </div>

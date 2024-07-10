@@ -45,7 +45,6 @@ export class LineChartComponent implements OnInit,AfterViewInit {
   getContentByMonth() {
     this.contentService.getContentByMonth().subscribe({
       next: (response) => {
-        console.log(response);
         const month = response?.content.map((element: { month: any }) => {
           return element.month;
         });

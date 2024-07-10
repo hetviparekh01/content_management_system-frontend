@@ -17,7 +17,6 @@ export class ProfileComponent implements OnInit {
       this.userService.getParticularUser().subscribe({
         next: (response: any) => {
           this.userData = response.content;
-          console.log(this.userData);
         },
         error: (err) => {
           Swal.fire({
